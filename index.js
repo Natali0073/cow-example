@@ -20,7 +20,7 @@ app.get('/api/cow/:say', cors(), async (req, res, next) => {
 // }
 })
 // Serve our base route that returns a Hello World cow
-app.get('/api/cow/', cors(), async (req, res, next) => {
+app.get('/api/cow/', (req, res) => {
     // try {
     //     const moo = cowsay.say({ text: 'Hello World!' })
     console.log("asdasda sadasdadsa")
