@@ -6,8 +6,9 @@ const path = require('path');
 const cowsay = require('cowsay')
 
 const app = express();
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: false}));
+// app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 if (process.env.NODE_ENV === 'production') {
     // Exprees will serve up production assets
