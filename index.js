@@ -18,6 +18,19 @@ if (process.env.NODE_ENV === 'production') {
 });
 }
 
+// app.get('/api/person-info', (req, res) => {
+//     res.send(JSON.stringify(homeData));
+// });
+
+app.get('/api/person-info', cors(), async (req, res, next) => {
+    try {
+        const moo = cowsay.say({ text: 'Hello World!' })
+        res.json({ moo })
+} catch (err) {
+    next(err)
+}
+})
+
 app.get('/api/posts', (req, res) => {
     res.send(postsList);
 });
@@ -65,10 +78,6 @@ const newContact = {
 
 contactsList.push(newContact);
 res.send(contactsList);
-});
-
-app.get('/api/person-info', (req, res) => {
-    res.send(JSON.stringify(homeData));
 });
 
 app.post('/api/person-technologies', (req, res) => {
