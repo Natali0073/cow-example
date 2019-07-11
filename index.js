@@ -25,9 +25,11 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('/api/person-info', cors(), async (req, res, next) => {
     try {
-        const moo = cowsay.say({ text: 'Hello World!' })
-        res.json({ moo })
+        const moo = cowsay.say({ text: 'Hello World!' });
+console.log(moo);
+res.json({ moo })
 } catch (err) {
+    console.log(err);
     next(err)
 }
 })
