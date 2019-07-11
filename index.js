@@ -14,7 +14,7 @@ app.get('/api/cow/:say', cors(), async (req, res, next) => {
     // try {
         // const text = req.params.say
         // const moo = cowsay.say({ text })
-        res.json({ moo: "kek" })
+        res.json({ moo : "kek" })
 // } catch (err) {
 //     next(err)
 // }
@@ -23,7 +23,8 @@ app.get('/api/cow/:say', cors(), async (req, res, next) => {
 app.get('/api/cow/', cors(), async (req, res, next) => {
     // try {
     //     const moo = cowsay.say({ text: 'Hello World!' })
-        res.json({ moo: "lol" })
+    console.log("asdasda sadasdadsa")
+        res.json({ moo : "lol" })
 // } catch (err) {
 //     next(err)
 // }
