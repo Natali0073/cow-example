@@ -3,7 +3,7 @@ const cowsay = require('cowsay')
 const cors = require('cors')
 // Create the server
 const app = express();
-
+const path = require('path');
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
 app.get('/*', function (req, res) {
