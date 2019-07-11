@@ -7,7 +7,11 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.get('/*', function (req, res, next) {
+    if (!req.path.includes('api'))
+        res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    else next();
+});
 
 app.get('/api/posts', (req, res) => {
     res.send(postsList);
