@@ -7,7 +7,7 @@ const path = require('path');
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 // Serve our api route /cow that returns a custom talking text cow
 app.get('/api/cow/:say', cors(), async (req, res, next) => {
