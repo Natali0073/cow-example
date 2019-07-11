@@ -64,12 +64,23 @@ export const addContact = (newContact: ContactsListDTO) => {
 };
 
 export const getPersonData = () => {
+  console.log('/api/person-info');
   return (dispatch: Dispatch) => {
-    return fetch('/api/person-info')
-            .then(response => response.json())
+    return fetch('/api/person-info', {
+      headers : {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+
+    })
+            .then(response => {
+              console.log('response', response);
+              return response.json();
+            })
             .then((json: PersonInfo) => {
               dispatch({type: PERSON_INFO_LOADED, payload: json});
             }, error => {
+              console.log('error', error);
               toast.error(error.message);
             });
   }
